@@ -68,10 +68,10 @@ void CompressedDepthPublisher::advertiseImpl(
   std::string param_base_name = base_topic.substr(ns_len);
   std::replace(param_base_name.begin(), param_base_name.end(), '/', '.');
 
-  node->declare_parameter(param_base_name+".png_level", kDefaultPngLevel);
+  node->declare_parameter(param_base_name+".depth_png_level", kDefaultPngLevel);
   node->declare_parameter(param_base_name+".depth_max", kDefaultDepthMax);
   node->declare_parameter(param_base_name+".depth_quantization", KDefaultDepthQuantization);
-  node->get_parameter_or<int>(param_base_name+".png_level", config_.png_level, kDefaultPngLevel);
+  node->get_parameter_or<int>(param_base_name+".depth_png_level", config_.png_level, kDefaultPngLevel);
   node->get_parameter_or<double>(param_base_name+".depth_max", config_.depth_max, kDefaultDepthMax);
   node->get_parameter_or<double>(param_base_name+".depth_quantization", config_.depth_max, KDefaultDepthQuantization);
 }
