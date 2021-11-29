@@ -49,7 +49,7 @@ public:
   CompressedSubscriber(): logger_(rclcpp::get_logger("CompressedSubscriber")) {}
   virtual ~CompressedSubscriber() = default;
 
-  virtual std::string getTransportName() const
+  virtual std::string getTransportName() const override
   {
     return "compressed";
   }
@@ -67,7 +67,7 @@ protected:
       const std::string& base_topic,
       const Callback& callback,
       rmw_qos_profile_t custom_qos,
-      rclcpp::SubscriptionOptions options) override;
+      rclcpp::SubscriptionOptions options);
 
   void internalCallback(const sensor_msgs::msg::CompressedImage::ConstSharedPtr& message,
                         const Callback& user_cb) override;

@@ -50,7 +50,7 @@ public:
   CompressedPublisher(): logger_(rclcpp::get_logger("CompressedPublisher")) {}
   virtual ~CompressedPublisher() = default;
 
-  virtual std::string getTransportName() const
+  virtual std::string getTransportName() const override
   {
     return "compressed";
   }
@@ -63,7 +63,7 @@ protected:
       rmw_qos_profile_t custom_qos) override;
 
   void publish(const sensor_msgs::msg::Image& message,
-               const PublishFn& publish_fn) const;
+               const PublishFn& publish_fn) const override;
 
   struct Config {
     // Compression format to use "jpeg", "png" or "tiff".
